@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import {
@@ -26,14 +26,13 @@ const ICON_MAP: Record<string, React.ElementType> = {
   ShieldCheck,
 };
 
-export function CategoryPills({ categories }: { categories: Category[] }) {
+function CategoryPillsContent({ categories }: { categories: Category[] }) {
   const searchParams = useSearchParams();
   const currentCategory = searchParams.get('category') || 'all';
 
   return (
     <div className="w-full overflow-x-auto no-scrollbar py-2">
       <div className="flex items-center gap-2 min-w-max">
-        {/* All Products Pill */}
         <Link
           href="/products"
           className={cn(
@@ -47,7 +46,6 @@ export function CategoryPills({ categories }: { categories: Category[] }) {
           <span>All Hardware</span>
         </Link>
 
-        {/* Dynamic Category Pills */}
         {categories.map((cat) => {
           const IconComponent = (cat.icon && ICON_MAP[cat.icon]) ? ICON_MAP[cat.icon] : Hammer;
           const isActive = currentCategory === cat.slug;
@@ -70,5 +68,13 @@ export function CategoryPills({ categories }: { categories: Category[] }) {
         })}
       </div>
     </div>
+  );
+}
+
+export function CategoryPills({ categories }: { categories: Category[] }) {
+  return (
+    <Suspense fallback={<div className="h-10 py-2 animate-pulse bg-slate-900 rounded-xl"></div>}>
+      <CategoryPillsContent categories={categories} />
+    </Suspense>
   );
 }

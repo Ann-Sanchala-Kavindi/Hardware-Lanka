@@ -24,21 +24,18 @@ export function slugify(text: string): string {
     .replace(/\-\-+/g, '-');
 }
 
-/**
- * Generates an instant WhatsApp chat link for a single product inquiry/order
- */
 export function generateWhatsAppProductLink(
   product: Product,
   quantity: number = 1,
   whatsappNumber?: string
 ): string {
-  const targetNumber = whatsappNumber || process.env.NEXT_PUBLIC_SHOP_WHATSAPP_NUMBER || '15551234567';
+  const targetNumber = whatsappNumber || process.env.NEXT_PUBLIC_SHOP_WHATSAPP_NUMBER || '94704194147';
   const cleanNumber = targetNumber.replace(/[^0-9]/g, '');
   
   const priceToUse = product.discount_price || product.price;
   const lineTotal = priceToUse * quantity;
 
-  const message = `Hello Apex Hardware! 👋
+  const message = `Hello UNITED ARI LANKA! 👋
 I would like to order / inquire about the following item:
 
 🔨 *Product:* ${product.title}
@@ -52,9 +49,6 @@ Thank you!`;
   return `https://wa.me/${cleanNumber}?text=${encodeURIComponent(message)}`;
 }
 
-/**
- * Generates an instant WhatsApp chat link for the entire shopping cart
- */
 export function generateWhatsAppCartLink(
   items: CartItem[],
   totalAmount: number,
@@ -62,7 +56,7 @@ export function generateWhatsAppCartLink(
   deliveryAddress?: string,
   whatsappNumber?: string
 ): string {
-  const targetNumber = whatsappNumber || process.env.NEXT_PUBLIC_SHOP_WHATSAPP_NUMBER || '15551234567';
+  const targetNumber = whatsappNumber || process.env.NEXT_PUBLIC_SHOP_WHATSAPP_NUMBER || '94704194147';
   const cleanNumber = targetNumber.replace(/[^0-9]/g, '');
 
   let itemsBreakdown = '';
@@ -72,7 +66,7 @@ export function generateWhatsAppCartLink(
     itemsBreakdown += `${index + 1}. *${item.product.title}*\n   Qty: ${item.quantity} ${item.product.unit} | SKU: ${item.product.sku} | ${formatCurrency(subtotal)}\n`;
   });
 
-  const message = `Hello Apex Hardware! 👋
+  const message = `Hello UNITED ARI LANKA! 👋
 I would like to place an order / request an official trade quote:
 
 📋 *ORDER ITEMS:*

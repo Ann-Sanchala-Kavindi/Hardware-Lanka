@@ -1,9 +1,12 @@
-import React from 'react';
-import { LayoutGrid, Filter, Search, SlidersHorizontal } from 'lucide-react';
+import React, { Suspense } from 'react';
+import { LayoutGrid, Search, SlidersHorizontal } from 'lucide-react';
 import { StoreService } from '@/lib/supabase/store-service';
 import { ProductCard } from '@/components/store/ProductCard';
 import { CategoryPills } from '@/components/store/CategoryPills';
 import Link from 'next/link';
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 interface ProductsPageProps {
   searchParams: {
@@ -38,12 +41,11 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-      {/* Page Header */}
       <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 relative overflow-hidden">
         <div className="relative z-10 space-y-2">
           <div className="flex items-center gap-2 text-xs font-bold text-brand-400 uppercase tracking-wider">
             <LayoutGrid className="w-4 h-4" />
-            <span>Hardware Catalog</span>
+            <span>UNITED ARI LANKA Catalog</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-white">
             {activeCategoryObj ? activeCategoryObj.name : 'All Tools & Hardware Supplies'}
@@ -55,13 +57,11 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
         </div>
       </div>
 
-      {/* Category Pills Bar */}
       <CategoryPills categories={categories} />
 
-      {/* Main Content Area: Sidebar + Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         
-        {/* Left Sidebar Filters */}
+        {/* Left Sidebar */}
         <div className="space-y-6">
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-5">
             <div className="flex items-center justify-between border-b border-slate-800 pb-3">
@@ -79,7 +79,6 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
               )}
             </div>
 
-            {/* Categories List */}
             <div className="space-y-2">
               <span className="text-xs font-bold text-slate-300 uppercase tracking-wider">
                 Category
@@ -111,7 +110,6 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
               </div>
             </div>
 
-            {/* In Stock Filter */}
             <div className="pt-3 border-t border-slate-800 space-y-2">
               <span className="text-xs font-bold text-slate-300 uppercase tracking-wider">
                 Availability
@@ -131,14 +129,13 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
               </div>
             </div>
 
-            {/* WhatsApp Contractor Direct Box */}
             <div className="p-4 rounded-xl bg-slate-800/60 border border-slate-700/60 space-y-2 text-xs">
-              <p className="font-bold text-white">Need Bulk Contractor Pricing?</p>
+              <p className="font-bold text-white">Need Bulk Contractor Rates?</p>
               <p className="text-slate-400 text-[11px]">
                 Send your material list on WhatsApp for instant quote calculation.
               </p>
               <a
-                href={`https://wa.me/${process.env.NEXT_PUBLIC_SHOP_WHATSAPP_NUMBER || '15551234567'}?text=Hello!%20I%20have%20a%20bulk%20hardware%20quote%20request.`}
+                href={`https://wa.me/${process.env.NEXT_PUBLIC_SHOP_WHATSAPP_NUMBER || '94704194147'}?text=Hello!%20I%20have%20a%20bulk%20hardware%20quote%20request.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-center py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg transition-colors"
@@ -149,9 +146,8 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
           </div>
         </div>
 
-        {/* Right Product Grid */}
+        {/* Right Grid */}
         <div className="lg:col-span-3 space-y-6">
-          {/* Active Status & Results Count */}
           <div className="flex flex-wrap items-center justify-between gap-4 bg-slate-900 border border-slate-800 rounded-xl p-3.5 text-xs text-slate-300">
             <div>
               Showing <span className="font-bold text-white">{filtered.length}</span> hardware items
@@ -176,7 +172,6 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
             </div>
           </div>
 
-          {/* Grid of Products */}
           {filtered.length === 0 ? (
             <div className="bg-slate-900 border border-slate-800 rounded-2xl p-12 text-center space-y-4">
               <div className="w-16 h-16 rounded-full bg-slate-800 text-slate-500 flex items-center justify-center mx-auto">

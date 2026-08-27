@@ -1,14 +1,14 @@
 import { Category, Product, StoreSettings } from './types';
 
 export const INITIAL_SETTINGS: StoreSettings = {
-  store_name: 'Apex Tools & Hardware Supply',
+  store_name: 'UNITED ARI LANKA (PVT) LTD',
   tagline: 'Your Trusted Partner in Building, Power Tools & Industrial Hardware',
-  whatsapp_number: '15551234567',
-  phone: '+1 (555) 123-4567',
-  email: 'sales@apexhardware.com',
-  address: '128 Industrial Parkway, Builder District',
+  whatsapp_number: '94704194147',
+  phone: '0704194147',
+  email: 'Unitedarilanka@gmail.com',
+  address: 'NO.66/3 AMANULLA ROAD, KATHANKUDY 06, SRILANKA',
   opening_hours: 'Mon - Sat: 7:30 AM - 6:30 PM | Sun: 8:00 AM - 2:00 PM',
-  announcement_banner: '⚡ Contractor Discounts on Bulk Orders! WhatsApp us for instant trade quotes.',
+  announcement_banner: '⚡ Wholesale & Contractor Discounts on Bulk Orders! WhatsApp Us for an Instant Quote.',
 };
 
 export const INITIAL_CATEGORIES: Category[] = [

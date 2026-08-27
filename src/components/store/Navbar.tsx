@@ -9,7 +9,6 @@ import {
   ShoppingCart,
   Phone,
   MessageSquare,
-  ShieldCheck,
   Menu,
   X,
   Lock,
@@ -35,24 +34,23 @@ export function Navbar({ announcement, whatsappNumber, phone }: {
     }
   };
 
-  const cleanWhatsApp = (whatsappNumber || '15551234567').replace(/[^0-9]/g, '');
+  const cleanWhatsApp = (whatsappNumber || '94704194147').replace(/[^0-9]/g, '');
 
   return (
     <header className="sticky top-0 z-40 w-full bg-slate-900 text-white shadow-lg">
-      {/* Top Utility Bar */}
       <div className="bg-slate-950 border-b border-slate-800 text-xs py-1.5 px-4">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2 text-brand-400 font-medium truncate">
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-            {announcement || '⚡ Contractor Discounts on Bulk Orders! WhatsApp us for instant trade quotes.'}
+            {announcement || '⚡ Wholesale & Contractor Discounts on Bulk Orders! WhatsApp Us for an Instant Quote.'}
           </div>
           <div className="flex items-center gap-4 text-slate-300 ml-auto">
             <a
-              href={`tel:${phone || '+15551234567'}`}
+              href={`tel:${phone || '0704194147'}`}
               className="hover:text-white flex items-center gap-1 transition-colors"
             >
               <Phone className="w-3.5 h-3.5 text-brand-400" />
-              <span>{phone || '+1 (555) 123-4567'}</span>
+              <span>{phone || '0704194147'}</span>
             </a>
             <span className="text-slate-700">|</span>
             <Link
@@ -66,28 +64,25 @@ export function Navbar({ announcement, whatsappNumber, phone }: {
         </div>
       </div>
 
-      {/* Main Navigation Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
         <div className="flex items-center justify-between gap-4">
-          {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group shrink-0">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-400 flex items-center justify-center text-slate-950 font-black shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
               <Wrench className="w-5 h-5 text-slate-950" />
             </div>
             <div>
-              <div className="text-xl font-extrabold tracking-tight text-white flex items-center gap-1">
-                APEX<span className="text-brand-400">HARDWARE</span>
+              <div className="text-base sm:text-lg font-extrabold tracking-tight text-white flex items-center gap-1">
+                UNITED ARI LANKA <span className="text-brand-400 text-xs sm:text-sm font-semibold">(PVT) LTD</span>
               </div>
-              <div className="text-[10px] uppercase font-bold tracking-widest text-slate-400 -mt-1">
-                Tools • Building • Supplies
+              <div className="text-[10px] uppercase font-bold tracking-widest text-slate-400 -mt-0.5">
+                Hardware • Tools • Building Supplies
               </div>
             </div>
           </Link>
 
-          {/* Search Form (Desktop) */}
           <form
             onSubmit={handleSearch}
-            className="hidden md:flex flex-1 max-w-xl relative items-center mx-4"
+            className="hidden md:flex flex-1 max-w-md relative items-center mx-4"
           >
             <input
               type="text"
@@ -105,11 +100,9 @@ export function Navbar({ announcement, whatsappNumber, phone }: {
             </button>
           </form>
 
-          {/* Action Buttons */}
           <div className="flex items-center gap-3">
-            {/* WhatsApp Quick Order Button */}
             <a
-              href={`https://wa.me/${cleanWhatsApp}?text=Hello%20Apex%20Hardware!%20I%20have%20an%20inquiry%20regarding%20products.`}
+              href={`https://wa.me/${cleanWhatsApp}?text=Hello%20United%20Ari%20Lanka!%20I%20have%20an%20inquiry%20regarding%20products.`}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-lg shadow-sm transition-all hover:shadow-emerald-600/30"
@@ -118,7 +111,6 @@ export function Navbar({ announcement, whatsappNumber, phone }: {
               <span>WhatsApp Us</span>
             </a>
 
-            {/* Cart Drawer Trigger */}
             <button
               onClick={openCart}
               className="relative flex items-center gap-2 px-3.5 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white rounded-lg transition-colors group"
@@ -132,7 +124,6 @@ export function Navbar({ announcement, whatsappNumber, phone }: {
               )}
             </button>
 
-            {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2 text-slate-400 hover:text-white rounded-lg"
@@ -142,25 +133,6 @@ export function Navbar({ announcement, whatsappNumber, phone }: {
           </div>
         </div>
 
-        {/* Mobile Search Bar */}
-        <form onSubmit={handleSearch} className="md:hidden mt-3 relative flex items-center">
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search tools, materials, SKUs..."
-            className="w-full bg-slate-800 border border-slate-700 rounded-lg pl-10 pr-20 py-2 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-400"
-          />
-          <Search className="w-4 h-4 text-slate-400 absolute left-3.5 pointer-events-none" />
-          <button
-            type="submit"
-            className="absolute right-1.5 px-3 py-1 bg-brand-500 text-slate-950 font-semibold text-xs rounded-md"
-          >
-            Go
-          </button>
-        </form>
-
-        {/* Categories / Sub-Nav */}
         <nav className="hidden md:flex items-center justify-between border-t border-slate-800/80 mt-3 pt-2 text-xs font-medium text-slate-300">
           <div className="flex items-center gap-6">
             <Link href="/products" className="hover:text-brand-400 transition-colors">
@@ -193,7 +165,6 @@ export function Navbar({ announcement, whatsappNumber, phone }: {
         </nav>
       </div>
 
-      {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-slate-950 border-t border-slate-800 px-4 py-4 space-y-3">
           <Link
@@ -223,13 +194,6 @@ export function Navbar({ announcement, whatsappNumber, phone }: {
             className="block text-sm text-slate-300 hover:text-brand-400 py-1"
           >
             💧 Plumbing & Valves
-          </Link>
-          <Link
-            href="/products?category=electrical"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="block text-sm text-slate-300 hover:text-brand-400 py-1"
-          >
-            💡 Electrical & Panels
           </Link>
           <Link
             href="/contact"

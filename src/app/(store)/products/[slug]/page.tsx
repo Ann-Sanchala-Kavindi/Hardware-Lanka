@@ -6,17 +6,18 @@ import {
   ChevronRight,
   ShieldCheck,
   Truck,
-  MessageSquare,
-  Package,
   Wrench,
   CheckCircle,
 } from 'lucide-react';
 import { StoreService } from '@/lib/supabase/store-service';
-import { formatCurrency, generateWhatsAppProductLink } from '@/lib/utils';
+import { formatCurrency } from '@/lib/utils';
 import { StockBadge } from '@/components/ui/Badge';
 import { SpecsTable } from '@/components/store/SpecsTable';
 import { ProductCard } from '@/components/store/ProductCard';
 import { ProductDetailActions } from './ProductDetailActions';
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 interface ProductDetailPageProps {
   params: {
@@ -41,7 +42,6 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
-      {/* Breadcrumbs */}
       <nav className="flex items-center gap-2 text-xs text-slate-400">
         <Link href="/" className="hover:text-white">
           Home
@@ -61,9 +61,7 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
         <span className="text-slate-200 truncate max-w-xs">{product.title}</span>
       </nav>
 
-      {/* Product Main Display */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-        {/* Left Column: Image Viewer */}
         <div className="lg:col-span-6 space-y-4">
           <div className="relative w-full aspect-square bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl">
             <Image
@@ -84,9 +82,7 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
           </div>
         </div>
 
-        {/* Right Column: Specs & Purchasing */}
         <div className="lg:col-span-6 space-y-6">
-          {/* Header Metadata */}
           <div className="space-y-2">
             <div className="flex flex-wrap items-center justify-between gap-2">
               {product.brand && (
@@ -108,7 +104,6 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
             </div>
           </div>
 
-          {/* Pricing Box */}
           <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
             <div className="flex items-baseline gap-3">
               <span className="text-3xl font-black text-white">
@@ -126,11 +121,10 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
 
             <p className="text-[11px] text-emerald-400 flex items-center gap-1.5 font-semibold">
               <CheckCircle className="w-3.5 h-3.5" />
-              <span>Wholesale volume discounts available for bulk contractor orders</span>
+              <span>Wholesale volume discounts available from UNITED ARI LANKA</span>
             </p>
           </div>
 
-          {/* Description */}
           <div className="space-y-2">
             <h3 className="text-xs font-bold text-slate-300 uppercase tracking-wider">
               Product Overview
@@ -140,10 +134,8 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
             </p>
           </div>
 
-          {/* Client Action Component (Add to Cart & Dynamic WhatsApp Inquire) */}
           <ProductDetailActions product={product} />
 
-          {/* Trust Guarantees */}
           <div className="grid grid-cols-2 gap-3 pt-2 border-t border-slate-800 text-xs text-slate-300">
             <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
               <ShieldCheck className="w-5 h-5 text-brand-400 shrink-0" />
@@ -156,7 +148,7 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
             <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
               <Truck className="w-5 h-5 text-emerald-400 shrink-0" />
               <div>
-                <p className="font-bold text-white">Site Delivery</p>
+                <p className="font-bold text-white">Island-wide Delivery</p>
                 <p className="text-[10px] text-slate-400">Direct to construction sites</p>
               </div>
             </div>
@@ -164,7 +156,6 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
         </div>
       </div>
 
-      {/* Technical Specifications Section */}
       <section className="space-y-4 pt-6 border-t border-slate-800">
         <h2 className="text-lg font-black text-white flex items-center gap-2">
           <Wrench className="w-4 h-4 text-brand-400" />
@@ -175,7 +166,6 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
         </div>
       </section>
 
-      {/* Related Category Products */}
       {relatedProducts.length > 0 && (
         <section className="space-y-6 pt-6 border-t border-slate-800">
           <div className="flex items-center justify-between">

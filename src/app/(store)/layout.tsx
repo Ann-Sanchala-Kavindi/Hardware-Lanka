@@ -5,6 +5,9 @@ import { CartDrawer } from '@/components/store/CartDrawer';
 import { QuoteModal } from '@/components/store/QuoteModal';
 import { StoreService } from '@/lib/supabase/store-service';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default async function StoreLayout({
   children,
 }: {
