@@ -1,17 +1,13 @@
-import React from 'react';
-import Link from 'next/link';
-import {
-  ArrowRight,
-  ShieldCheck,
-  Truck,
-  PhoneCall,
-  CheckCircle2,
-  Hammer,
-  Zap,
-  Wrench,
-  Building,
-} from 'lucide-react';
 import { StoreSettings } from '@/lib/types';
+import {
+    ArrowRight,
+    Building,
+    CheckCircle2,
+    Hammer,
+    PhoneCall,
+    Zap
+} from 'lucide-react';
+import Link from 'next/link';
 
 export function HeroBanner({ settings }: { settings?: StoreSettings }) {
   const cleanWhatsApp = (settings?.whatsapp_number || '15551234567').replace(/[^0-9]/g, '');
@@ -75,7 +71,7 @@ export function HeroBanner({ settings }: { settings?: StoreSettings }) {
               </Link>
 
               <a
-                href={`https://wa.me/${cleanWhatsApp}?text=Hello%20Apex%20Hardware!%20I%20need%20a%20price%20quote%20for%20construction%20materials.`}
+                href={`https://wa.me/${cleanWhatsApp}?text=Hello%20Lanka%20Hardware!%20I%20need%20a%20price%20quote%20for%20construction%20materials.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold text-sm rounded-xl transition-all"

@@ -1,4 +1,4 @@
-# Apex Tools & Hardware Store 🛠️
+# Lanka Hardware Store 🛠️
 
 A modern, high-performance web application and admin portal designed for a Hardware & Building Supplies store. Built with **Next.js 14 (App Router)**, **Tailwind CSS**, and **Supabase (PostgreSQL + Auth + Storage)**.
 
@@ -35,7 +35,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ## 🗄️ Setting Up Supabase Cloud Database (Free in 2 Minutes)
 
 1. Go to [supabase.com](https://supabase.com) and create a free account.
-2. Click **New Project** and name it (e.g. `apex-hardware`).
+2. Click **New Project** and name it (e.g. `lanka-hardware`).
 3. In your Supabase Dashboard:
    * Go to **SQL Editor** on the left menu.
    * Click **New Query**.

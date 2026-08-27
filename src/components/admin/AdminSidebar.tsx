@@ -1,18 +1,17 @@
 'use client';
 
-import React from 'react';
+import { cn } from '@/lib/utils';
+import {
+    ExternalLink,
+    FileSpreadsheet,
+    LayoutDashboard,
+    LogOut,
+    Package,
+    Settings,
+    Wrench,
+} from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import {
-  LayoutDashboard,
-  Package,
-  FileSpreadsheet,
-  Settings,
-  ExternalLink,
-  Wrench,
-  LogOut,
-} from 'lucide-react';
-import { cn } from '@/lib/utils';
 
 export function AdminSidebar() {
   const pathname = usePathname();
@@ -42,7 +41,7 @@ export function AdminSidebar() {
 
   const handleLogout = () => {
     if (typeof window !== 'undefined') {
-      localStorage.removeItem('apex_admin_auth');
+      localStorage.removeItem('lanka_admin_auth');
       window.location.href = '/admin/login';
     }
   };
@@ -57,7 +56,7 @@ export function AdminSidebar() {
           </div>
           <div>
             <div className="text-base font-extrabold text-white tracking-tight">
-              APEX<span className="text-brand-400">ADMIN</span>
+              LANKA<span className="text-brand-400">ADMIN</span>
             </div>
             <div className="text-[10px] uppercase font-bold text-slate-400">
               Hardware Portal

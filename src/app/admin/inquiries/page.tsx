@@ -1,21 +1,16 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import {
-  FileSpreadsheet,
-  Phone,
-  MessageSquare,
-  MapPin,
-  Clock,
-  CheckCircle,
-  AlertCircle,
-  Eye,
-  X,
-} from 'lucide-react';
 import { AdminHeader } from '@/components/admin/AdminHeader';
 import { StoreService } from '@/lib/supabase/store-service';
 import { Inquiry } from '@/lib/types';
 import { formatCurrency } from '@/lib/utils';
+import {
+    Eye,
+    MessageSquare,
+    Phone,
+    X
+} from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export default function AdminInquiriesPage() {
   const [inquiries, setInquiries] = useState<Inquiry[]>([]);
@@ -148,7 +143,7 @@ export default function AdminInquiriesPage() {
                           </button>
 
                           <a
-                            href={`https://wa.me/${cleanPhone}?text=Hello%20${encodeURIComponent(inq.customer_name)}!%20This%20is%20Apex%20Hardware%20regarding%20your%20quote%20request.`}
+                            href={`https://wa.me/${cleanPhone}?text=Hello%20${encodeURIComponent(inq.customer_name)}!%20This%20is%20Lanka%20Hardware%20regarding%20your%20quote%20request.`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex p-1.5 rounded-lg bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white"

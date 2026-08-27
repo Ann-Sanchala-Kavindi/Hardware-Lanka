@@ -1,5 +1,5 @@
 -- ==============================================================================
--- APEX HARDWARE STORE - SUPABASE DATABASE SCHEMA & SEED DATA
+-- LANKA HARDWARE STORE - SUPABASE DATABASE SCHEMA & SEED DATA
 -- Instructions: Copy and paste all of this into the Supabase SQL Editor and click RUN
 -- ==============================================================================
 
@@ -59,11 +59,11 @@ CREATE TABLE IF NOT EXISTS public.inquiries (
 -- 5. Create Store Settings Table
 CREATE TABLE IF NOT EXISTS public.store_settings (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    store_name TEXT DEFAULT 'Apex Tools & Hardware Supply',
+    store_name TEXT DEFAULT 'Lanka Hardware',
     tagline TEXT DEFAULT 'Your Trusted Partner in Building & Contracting',
     whatsapp_number TEXT DEFAULT '15551234567',
     phone TEXT DEFAULT '+1 (555) 123-4567',
-    email TEXT DEFAULT 'sales@apexhardware.com',
+    email TEXT DEFAULT 'sales@lankahardware.com',
     address TEXT DEFAULT '128 Industrial Parkway, Builder District',
     opening_hours TEXT DEFAULT 'Mon - Sat: 7:30 AM - 6:30 PM | Sun: 8:00 AM - 2:00 PM',
     announcement_banner TEXT DEFAULT '⚡ Contractor Discounts Available for Bulk Orders! Call or WhatsApp us today.',
@@ -115,11 +115,11 @@ ON CONFLICT (slug) DO NOTHING;
 
 INSERT INTO public.store_settings (store_name, tagline, whatsapp_number, phone, email, address, opening_hours, announcement_banner)
 VALUES (
-    'Apex Tools & Hardware Supply',
+    'Lanka Hardware',
     'Your Trusted Contractor & DIY Hardware Supply Partner',
     '15551234567',
     '+1 (555) 123-4567',
-    'sales@apexhardware.com',
+    'sales@lankahardware.com',
     '128 Industrial Parkway, Builder District',
     'Mon - Sat: 7:30 AM - 6:30 PM | Sun: 8:00 AM - 2:00 PM',
     '⚡ Special Wholesale Discounts for Contractors & Bulk Builders! WhatsApp Us for an Instant Quote.'
@@ -184,7 +184,7 @@ VALUES
     'heavy-duty-brass-ball-valve-3-4-inch',
     'PL-BV-34BR',
     'plumbing',
-    'ApexPlumb',
+    'LankaPlumb',
     14.50,
     null,
     'piece',

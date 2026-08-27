@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import { ArrowRight, Lock, Wrench } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { Lock, Wrench, ArrowRight, ShieldCheck } from 'lucide-react';
+import React, { useState } from 'react';
 
 export default function AdminLoginPage() {
   const [passcode, setPasscode] = useState('');
@@ -13,7 +13,7 @@ export default function AdminLoginPage() {
     e.preventDefault();
     // Default demo passcode is 'admin123'
     if (passcode === 'admin123' || passcode.trim() !== '') {
-      localStorage.setItem('apex_admin_auth', 'true');
+      localStorage.setItem('lanka_admin_auth', 'true');
       router.push('/admin');
     } else {
       setError('Invalid passcode. Use "admin123" for demo access.');

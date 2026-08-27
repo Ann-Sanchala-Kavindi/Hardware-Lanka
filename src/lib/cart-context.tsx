@@ -1,7 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { Product, CartItem } from './types';
+import { CartItem, Product } from './types';
 
 interface CartContextType {
   items: CartItem[];
@@ -32,7 +32,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   // Load from localStorage on mount
   useEffect(() => {
     try {
-      const saved = localStorage.getItem('apex_hardware_cart');
+      const saved = localStorage.getItem('lanka_hardware_cart');
       if (saved) {
         setItems(JSON.parse(saved));
       }
@@ -47,7 +47,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (isLoaded) {
       try {
-        localStorage.setItem('apex_hardware_cart', JSON.stringify(items));
+        localStorage.setItem('lanka_hardware_cart', JSON.stringify(items));
       } catch (e) {
         console.error('Error saving cart to localStorage', e);
       }

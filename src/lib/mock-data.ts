@@ -160,7 +160,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     slug: 'heavy-duty-brass-ball-valve-3-4-inch',
     sku: 'PL-BV-34BR',
     category_slug: 'plumbing',
-    brand: 'ApexPlumb',
+    brand: 'LankaPlumb',
     price: 14.50,
     discount_price: null,
     unit: 'piece',
