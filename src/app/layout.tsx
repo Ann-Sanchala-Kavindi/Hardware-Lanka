@@ -5,6 +5,9 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Lanka Hardware | Premium Tools & Contractor Materials',
   description: 'Wholesale & Retail Hardware Supplies: Power Tools, Hand Tools, Plumbing, Electrical Panels, Structural Fasteners & Safety Gear. WhatsApp Ordering & Site Delivery.',
+  verification: {
+    google: 'aQA1ZLDvyzwTOy4WOoMo--KflnqbUe7AxYjGLNc4mqA',
+  },
 };
 
 export default function RootLayout({
